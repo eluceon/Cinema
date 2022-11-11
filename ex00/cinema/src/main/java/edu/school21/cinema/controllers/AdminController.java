@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
     @GetMapping("/panel/halls")
     public String processMovieHall() {
-        return "halls";
+        return "admin/panel/halls";
     }
 
     @GetMapping("/panel/films")
     public String processFilm() {
-        return "films";
+        return "admin/panel/films";
     }
 
     @GetMapping("/panel/sessions")
     private String processSessions() {
-        return "sessions";
+        return "admin/panel/sessions";
     }
 }

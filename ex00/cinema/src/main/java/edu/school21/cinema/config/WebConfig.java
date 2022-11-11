@@ -1,24 +1,39 @@
 package edu.school21.cinema.config;
 
-import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
-
-public class WebConfig implements WebApplicationInitializer {
-    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        // Load Spring web application configuration
-        AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-        applicationContext.register(AppConfig.class);
-
-        // Create, register and map the dispatcher servlet
-        DispatcherServlet dispatcherServlet = new DispatcherServlet(applicationContext);
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher", dispatcherServlet);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
+@Configuration
+@EnableWebMvc
+@ComponentScan(value = "edu.school21.cinema")
+//public class WebConfig implements WebMvcConfigurer {
+public class WebConfig {
+    @Bean
+    public FreeMarkerConfigurer freemarkerConfig() {
+        FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
+        freeMarkerConfigurer.setTemplateLoaderPath("/WEB-INF/templates/");
+        freeMarkerConfigurer.setDefaultEncoding("UTF-8");
+        return freeMarkerConfigurer;
     }
+
+    @Bean
+    FreeMarkerViewResolver freeMarkerViewResolver() {
+        FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
+        resolver.setCache(true);
+        resolver.setPrefix("");
+        resolver.setSuffix(".ftl");
+        resolver.setContentType("text/html; charset=UTF-8");
+        return resolver;
+    }
+
+//    @Bean
+//    public CommonsMultipartResolver multipartResolver() {
+//        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+//        multipartResolver.setMaxUploadSize(50 * 1024 * 1024);
+//        return multipartResolver;
+//    }
 }
