@@ -20,15 +20,15 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "title")
-    @NotEmpty
-    @NotNull
+    @NotEmpty(message = "Title is required")
+    @NotNull(message = "Title is required")
     private String title;
     @Column(name = "year_of_release")
-    @NotNull
+    @NotNull(message = "Year of release restriction is required")
     @Min(value = 1900, message = "Year of release can't be less 1900")
     private Integer yearOfRelease;
     @Column(name = "age_restriction")
-    @NotNull
+    @NotNull(message = "Age restriction is required")
     @Min(value = 0, message = "Age can't be less than 0")
     @Max(value = 150, message = "Age can't be more than 150")
     private Integer ageRestriction;

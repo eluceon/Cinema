@@ -1,0 +1,47 @@
+package edu.school21.cinema.services.impl;
+
+import edu.school21.cinema.dao.SessionDao;
+import edu.school21.cinema.models.Session;
+import edu.school21.cinema.services.SessionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@Transactional(readOnly = true)
+public class SessionServiceImpl implements SessionService {
+    private final SessionDao sessionDao;
+
+    @Autowired
+    public SessionServiceImpl(SessionDao sessionDao) {
+        this.sessionDao = sessionDao;
+    }
+
+    @Override
+    public Optional<Session> get(int id) {
+        return sessionDao.get(id);
+    }
+
+    @Override
+    public List<Session> getAll() {
+        return sessionDao.getAll();
+    }
+
+    @Override
+    public void save(Session session) {
+        sessionDao.save(session);
+    }
+
+    @Override
+    public void update(Session session) {
+        sessionDao.update(session);
+    }
+
+    @Override
+    public void delete(Session session) {
+        sessionDao.delete(session);
+    }
+}

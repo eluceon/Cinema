@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -19,21 +20,22 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "first_name")
-    @NotNull
-    @Size(min=2, message="First name must be at least 2 characters long")
+    @NotNull(message = "First name is required")
+    @Size(min = 2, max = 30, message = "First name should be between 2 and 30 characters")
     private String firstName;
     @Column(name = "last_name")
-    @NotNull
-    @Size(min=2, message="Last name must be at least 2 characters long")
+    @NotNull(message = "Last name is required")
+    @Size(min = 2, max = 50, message = "Last name should be between 2 and 50 characters")
     private String lastName;
     @Column(name = "phone_number")
     private String phoneNumber;
     @Column(name = "email")
-    @NotNull
+    @NotNull(message = "Email is required")
+    @NotEmpty(message = "Email is required")
     @Email
     private String email;
     @Column(name = "password")
-    @NotNull
+    @NotNull(message = "Password is required")
     @Size(min=5, message="Password must be at least 5 characters long")
     private String password;
     @OneToMany(mappedBy = "admin")
