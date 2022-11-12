@@ -25,7 +25,7 @@ public class MovieDaoImpl implements MovieDao {
     }
 
     @Override
-    public void save(Movie movie) {
+    public void add(Movie movie) {
         entityManager.persist(movie);
     }
 

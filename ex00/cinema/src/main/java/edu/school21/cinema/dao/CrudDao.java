@@ -8,7 +8,7 @@ public interface CrudDao<T> {
 
     List<T> getAll();
 
-    void save(T entity);
+    void add(T entity);
 
     void update(T entity);
 

@@ -26,7 +26,7 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public void save(Admin admin) {
+    public void add(Admin admin) {
         entityManager.persist(admin);
     }
 

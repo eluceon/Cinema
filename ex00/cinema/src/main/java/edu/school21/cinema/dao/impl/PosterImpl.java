@@ -25,7 +25,7 @@ public class PosterImpl implements PosterDao {
     }
 
     @Override
-    public void save(Poster poster) {
+    public void add(Poster poster) {
         entityManager.persist(poster);
     }
 

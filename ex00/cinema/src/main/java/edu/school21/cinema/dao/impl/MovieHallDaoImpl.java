@@ -25,7 +25,7 @@ public class MovieHallDaoImpl implements MovieHallDao {
     }
 
     @Override
-    public void save(MovieHall movieHall) {
+    public void add(MovieHall movieHall) {
         entityManager.persist(movieHall);
     }
 

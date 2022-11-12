@@ -31,8 +31,8 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public void save(Session session) {
-        sessionDao.save(session);
+    public void add(Session session) {
+        sessionDao.add(session);
     }
 
     @Override

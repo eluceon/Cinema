@@ -32,8 +32,8 @@ public class PosterServiceImpl implements PosterService {
 
     @Override
     @Transactional
-    public void save(Poster poster) {
-        posterDao.save(poster);
+    public void add(Poster poster) {
+        posterDao.add(poster);
     }
 
     @Override

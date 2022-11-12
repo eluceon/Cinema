@@ -8,7 +8,7 @@ public interface Service<T> {
 
     List<T> getAll();
 
-    void save(T entity);
+    void add(T entity);
 
     void update(T entity);
 

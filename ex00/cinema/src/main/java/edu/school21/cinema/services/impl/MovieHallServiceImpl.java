@@ -32,8 +32,8 @@ public class MovieHallServiceImpl implements MovieHallService {
 
     @Override
     @Transactional
-    public void save(MovieHall movieHall) {
-        movieHallDao.save(movieHall);
+    public void add(MovieHall movieHall) {
+        movieHallDao.add(movieHall);
     }
 
     @Override

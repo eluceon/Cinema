@@ -32,8 +32,8 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     @Transactional
-    public void save(Movie movie) {
-        movieDao.save(movie);
+    public void add(Movie movie) {
+        movieDao.add(movie);
     }
 
     @Override

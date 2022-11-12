@@ -25,7 +25,7 @@ public class SessionDaoImpl implements SessionDao {
     }
 
     @Override
-    public void save(Session session) {
+    public void add(Session session) {
         entityManager.persist(session);
     }
 

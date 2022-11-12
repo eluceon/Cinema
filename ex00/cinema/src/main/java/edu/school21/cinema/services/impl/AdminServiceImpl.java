@@ -32,8 +32,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional
-    public void save(Admin admin) {
-        adminDao.save(admin);
+    public void add(Admin admin) {
+        adminDao.add(admin);
     }
 
     @Override

@@ -12,8 +12,8 @@ CREATE TABLE IF NOT EXISTS ex00.admins (
 
 CREATE TABLE IF NOT EXISTS ex00.movie_halls(
     id              int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    serial_number   int UNIQUE NOT NULL CHECK (serial_number > 0),
-    seats           int NOT NULL CHECK (seats > 0),
+    serial_number   int UNIQUE NOT NULL CHECK (serial_number >= 0),
+    seats           int NOT NULL CHECK (seats >= 0),
     admin_id        int,
     FOREIGN KEY (admin_id) REFERENCES ex00.admins (id) ON DELETE SET NULL
 );
