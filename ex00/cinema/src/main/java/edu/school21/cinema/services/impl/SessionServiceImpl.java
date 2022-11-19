@@ -21,8 +21,8 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public Optional<Session> get(int id) {
-        return sessionDao.get(id);
+    public Session get(int id) {
+        return sessionDao.get(id).orElse(null);
     }
 
     @Override

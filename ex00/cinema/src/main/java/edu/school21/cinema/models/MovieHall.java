@@ -19,11 +19,9 @@ public class MovieHall {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "serial_number")
-    @NotNull(message = "Serial number is required")
     @Min(value = 0, message="Serial number must a positive number")
     private Integer serialNumber;
     @Column(name = "seats")
-    @NotNull(message = "Number of seats is required")
     @Min(value = 0, message="Number of seats must a positive number")
     private Integer seats;
     @ManyToOne

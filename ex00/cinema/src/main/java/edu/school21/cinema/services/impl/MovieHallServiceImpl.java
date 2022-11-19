@@ -21,8 +21,8 @@ public class MovieHallServiceImpl implements MovieHallService {
     }
 
     @Override
-    public Optional<MovieHall> get(int id) {
-        return movieHallDao.get(id);
+    public MovieHall get(int id) {
+        return movieHallDao.get(id).orElse(null);
     }
 
     @Override

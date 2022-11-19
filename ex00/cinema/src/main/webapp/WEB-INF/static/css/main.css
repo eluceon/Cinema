@@ -10,3 +10,7 @@ body {
     padding-bottom: 50px;
     background-color: #f5f5f5;
 }
+
+form b {
+    color: red;
+}

@@ -31,6 +31,16 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
+    public Optional<Admin> findByEmail(String email) {
+        TypedQuery<Admin> query = entityManager.createQuery(
+                "SELECT a FROM Admin a WHERE a.email = :email",
+                Admin.class
+        );
+        query.setParameter("email", email);
+        return query.getResultList().stream().findAny();
+    }
+
+    @Override
     public void update(Admin admin) {
         TypedQuery<Admin> query = entityManager.createQuery(
                 "UPDATE Admin a SET a.firstName = :firstName, a.lastName = :lastName, " +

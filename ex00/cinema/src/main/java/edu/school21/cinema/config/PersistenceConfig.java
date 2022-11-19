@@ -2,6 +2,7 @@ package edu.school21.cinema.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -18,6 +19,7 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:hibernate.properties")
+@ComponentScan("edu.school21.cinema.dao")
 @EnableTransactionManagement
 public class PersistenceConfig {
     private final Environment env;

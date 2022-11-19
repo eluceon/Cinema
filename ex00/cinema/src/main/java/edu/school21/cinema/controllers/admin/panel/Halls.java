@@ -1,4 +1,4 @@
-package edu.school21.cinema.controllers;
+package edu.school21.cinema.controllers.admin.panel;
 
 import edu.school21.cinema.models.MovieHall;
 import edu.school21.cinema.services.AdminService;
@@ -16,26 +16,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/admin/panel")
-public class AdminController {
-    private final AdminService adminService;
+@RequestMapping("/admin/panel/halls")
+class Halls {
     private final MovieHallService movieHallService;
-    private final MovieService movieService;
 
     @Autowired
-    public AdminController(AdminService adminService, MovieHallService movieHallService, MovieService movieService) {
-        this.adminService = adminService;
+    public Halls(MovieHallService movieHallService) {
         this.movieHallService = movieHallService;
-        this.movieService = movieService;
     }
 
-    @GetMapping("/halls")
+    @GetMapping
     public String getHalls(Model model) {
         model.addAttribute("movieHalls", movieHallService.getAll());
         return "/admin/panel/halls";
     }
 
-    @PostMapping("/halls")
+    @PostMapping
     public String addHall(@ModelAttribute @Valid MovieHall movieHall, BindingResult result) {
         System.out.println("TEST FROM POST HALLS");
 //        movieHallValidator.validate(movieHall, result);
@@ -46,17 +42,6 @@ public class AdminController {
         return "redirect:/admin/panel/halls";
     }
 
-    @GetMapping("/films")
-    public String getMovies(Model model) {
-        model.addAttribute("movies", movieService.getAll());
-        return "/admin/panel/films";
-    }
-
-    @PostMapping("/films")
-    public String postMovie(Model model) {
-        model.addAttribute("movies", movieService.getAll());
-        return "redirect:/admin/panel/films";
-    }
 
     @GetMapping("/sessions")
     private String getSessions() {

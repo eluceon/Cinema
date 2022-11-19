@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +23,8 @@ public class PosterServiceImpl implements PosterService {
     }
 
     @Override
-    public Optional<Poster> get(int id) {
-        return posterDao.get(id);
+    public Poster get(int id) {
+        return posterDao.get(id).orElse(null);
     }
 
     @Override
@@ -33,6 +35,7 @@ public class PosterServiceImpl implements PosterService {
     @Override
     @Transactional
     public void add(Poster poster) {
+        poster.setDateTime(new Timestamp(System.currentTimeMillis()));
         posterDao.add(poster);
     }
 
