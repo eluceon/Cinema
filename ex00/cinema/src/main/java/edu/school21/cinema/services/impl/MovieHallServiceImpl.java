@@ -47,4 +47,9 @@ public class MovieHallServiceImpl implements MovieHallService {
     public void delete(MovieHall movieHall) {
         movieHallDao.delete(movieHall);
     }
+
+    @Override
+    public MovieHall findBySerialNumber(Integer serialNumber) {
+        return movieHallDao.findBySerialNumber(serialNumber).orElse(null);
+    }
 }

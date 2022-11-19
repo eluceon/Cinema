@@ -1,11 +1,13 @@
 package edu.school21.cinema.dao.impl;
 
 import edu.school21.cinema.dao.MovieHallDao;
+import edu.school21.cinema.models.Admin;
 import edu.school21.cinema.models.MovieHall;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,5 +41,15 @@ public class MovieHallDaoImpl implements MovieHallDao {
     @Override
     public void delete(MovieHall movieHall) {
         entityManager.remove(movieHall);
+    }
+
+    @Override
+    public Optional<MovieHall> findBySerialNumber(Integer serialNumber) {
+        TypedQuery<MovieHall> query = entityManager.createQuery(
+                "SELECT h FROM MovieHall h WHERE h.serialNumber = :serialNumber",
+                MovieHall.class
+        );
+        query.setParameter("serialNumber", serialNumber);
+        return query.getResultList().stream().findAny();
     }
 }

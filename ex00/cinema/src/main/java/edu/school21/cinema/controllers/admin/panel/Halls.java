@@ -1,9 +1,8 @@
 package edu.school21.cinema.controllers.admin.panel;
 
 import edu.school21.cinema.models.MovieHall;
-import edu.school21.cinema.services.AdminService;
 import edu.school21.cinema.services.MovieHallService;
-import edu.school21.cinema.services.MovieService;
+import edu.school21.cinema.util.MovieHallValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,24 +18,26 @@ import javax.validation.Valid;
 @RequestMapping("/admin/panel/halls")
 class Halls {
     private final MovieHallService movieHallService;
+    private final MovieHallValidator movieHallValidator;
 
     @Autowired
-    public Halls(MovieHallService movieHallService) {
+    public Halls(MovieHallService movieHallService, MovieHallValidator movieHallValidator) {
         this.movieHallService = movieHallService;
+        this.movieHallValidator = movieHallValidator;
     }
 
     @GetMapping
     public String getHalls(Model model) {
         model.addAttribute("movieHalls", movieHallService.getAll());
+        model.addAttribute("movieHall", new MovieHall());
         return "/admin/panel/halls";
     }
 
     @PostMapping
     public String addHall(@ModelAttribute @Valid MovieHall movieHall, BindingResult result) {
-        System.out.println("TEST FROM POST HALLS");
-//        movieHallValidator.validate(movieHall, result);
+        movieHallValidator.validate(movieHall, result);
         if (result.hasErrors()) {
-            return "/errorsTMP";
+            return "/admin/panel/halls";
         }
         movieHallService.add(movieHall);
         return "redirect:/admin/panel/halls";

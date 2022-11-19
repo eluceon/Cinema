@@ -37,8 +37,7 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public String signIn(@ModelAttribute @Valid LoginForm loginForm, BindingResult result, Model model,
-                         HttpServletRequest req) {
+    public String signIn(@ModelAttribute @Valid LoginForm loginForm, BindingResult result, HttpSession session) {
         signInValidator.validate(loginForm.getEmail(), result);
         if (result.hasErrors()) {
             return "/admin/signin";
@@ -49,7 +48,7 @@ public class AuthController {
             return "/admin/signin";
         }
 
-        req.getSession().setAttribute("admin", admin);
+        session.setAttribute("admin", admin);
         return "redirect:/admin/panel";
     }
 
