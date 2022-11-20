@@ -17,7 +17,8 @@ public class AuthorisationFilter implements Filter {
         HttpSession session = httpServletRequest.getSession();
 
         if (session.getAttribute("admin") == null) {
-            httpServletResponse.sendError(HttpServletResponse.SC_FORBIDDEN);
+//            httpServletResponse.sendError(HttpServletResponse.SC_FORBIDDEN);
+            httpServletResponse.sendRedirect("/admin/signin");
         } else {
             chain.doFilter(request, response);
         }

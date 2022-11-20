@@ -12,7 +12,13 @@
         </head>
 
         <body>
-            <@content/>
+        <div class="column_main_wrapper">
+            <div class="column_main">
+                <H1 style="text-align: center">${title}</H1>
+                <hr>
+                <@content/>
+            </div>
+        </div>
         </body>
     </html>
 </#macro>

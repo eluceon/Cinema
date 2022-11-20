@@ -5,26 +5,25 @@
 <html lang="en">
 
 <#macro content>
-    <h1>Register Form</h1>
     <form method="post">
-        <div class="row">
-            <div class="col">
+        <div>
+            <div>
                 <label>First Name:</label><br />
                 <@spring.formInput "admin.firstName"/> <@spring.showErrors "<br />"/>
             </div>
-            <div class="col">
+            <div>
                 <label>Last Name:</label><br />
                 <@spring.formInput "admin.lastName"/> <@spring.showErrors "<br />"/>
             </div>
-            <div class="col">
+            <div>
                 <label>Email:</label><br />
                 <@spring.formInput "admin.email"/> <@spring.showErrors "<br />"/>
             </div>
-            <div class="col">
+            <div>
                 <label>Phone:</label><br />
                 <@spring.formInput "admin.phoneNumber"/> <@spring.showErrors "<br />"/>
             </div>
-            <div class="col">
+            <div>
                 <label>Password:</label><br />
                 <@spring.formInput "admin.password"/> <@spring.showErrors "<br />"/>
             </div>
@@ -33,4 +32,4 @@
     </form>
 </#macro>
 
-<@main title="👤 Sign Up"/>
+<@main title="👤 Register Form"/>

@@ -2,22 +2,20 @@
 <#include "../main-template.ftl"/>
 
 <#macro content>
-    <ul>
-        <li>${admin.firstName} ${admin.lastName} ${admin.email}</li>
-    </ul>
-    <form action="/admin/panel/films" method="get">
-        <div class="container">
-            <button type="submit" class="btn">🎞 Films panel</button>
-        </div>
-    </form>
+    ${admin.firstName} ${admin.lastName} ${admin.email}
     <form action="/admin/panel/halls" method="get">
         <div class="container">
-            <button type="submit" class="btn">🍿 Halls panel</button>
+            <button type="submit" class="btn">Movie Halls</button>
+        </div>
+    </form>
+    <form action="/admin/panel/films" method="get">
+        <div class="container">
+            <button type="submit" class="btn">Films</button>
         </div>
     </form>
     <form action="/admin/panel/sessions" method="get">
         <div class="container">
-            <button type="submit" class="btn">🌅 Sessions panel</button>
+            <button type="submit" class="btn">Sessions</button>
         </div>
     </form>
     <form action="/admin/logout" method="post">

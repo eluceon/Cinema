@@ -1,8 +1,9 @@
-<html>
-<head>
-    <title>Sessions</title>
-</head>
-<body>
+<#import "/spring.ftl" as spring />
+<#include "../../main-template.ftl"/>
 
-</body>
-</html>
+<#macro content>
+
+
+</#macro>
+
+<@main title="🌅 Sessions"/>

@@ -2,14 +2,13 @@
 <#include "../../main-template.ftl"/>
 
 <#macro content>
-    <h1>Movie Halls</h1>
     <form method="post">
-        <div class="row">
-            <div class="col">
+        <div>
+            <div>
                 <label>Enter hall's serial number:</label>
                 <@spring.formInput "movieHall.serialNumber" /> <@spring.showErrors "<br />"/>
             </div>
-            <div class="col">
+            <div>
                 <label>Enter count of seats:</label>
                 <@spring.formInput "movieHall.seats"/> <@spring.showErrors "<br />"/>
             </div>
@@ -19,7 +18,7 @@
 
     <#if movieHalls?has_content>
         <div class="container">
-            <table class="minimalistBlack">
+            <table class="statistics">
                 <thead>
                 <th>Serial number</th>
                 <th>Seats count</th>
