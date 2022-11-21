@@ -73,7 +73,6 @@ input:focus, select:focus {
     cursor: pointer;
 }
 
-
 table.statistics {
     border: 3px solid #00babc;
     width: 100%;
@@ -82,8 +81,8 @@ table.statistics {
     color: #67676d;
     text-transform: uppercase;
     background: #fff;
-
 }
+
 table.statistics td, table.statistics th {
     border: 1px solid #00babc;
     padding: 5px 4px;
