@@ -33,19 +33,19 @@ public class AuthController {
     @GetMapping("/signin")
     public String getSignIn(Model model)  {
         model.addAttribute("loginForm", new LoginForm());
-        return "/admin/signin";
+        return "/admin/auth/signin";
     }
 
     @PostMapping("/signin")
     public String signIn(@ModelAttribute @Valid LoginForm loginForm, BindingResult result, HttpSession session) {
         signInValidator.validate(loginForm.getEmail(), result);
         if (result.hasErrors()) {
-            return "/admin/signin";
+            return "/admin/auth/signin";
         }
         Admin admin = adminService.signIn(loginForm.getEmail(), loginForm.getPassword());
         if (admin == null) {
             result.rejectValue("email", "", "Wrong email or password");
-            return "/admin/signin";
+            return "/admin/auth/signin";
         }
 
         session.setAttribute("admin", admin);
@@ -55,14 +55,14 @@ public class AuthController {
     @GetMapping("/signup")
     public String getSignUp(Model model) {
         model.addAttribute("admin", new Admin());
-        return "/admin/signup";
+        return "/admin/auth/signup";
     }
 
     @PostMapping("/signup")
     public String signUp(@ModelAttribute @Valid Admin admin, BindingResult result) {
         signUpValidator.validate(admin, result);
         if (result.hasErrors()) {
-            return "/admin/signup";
+            return "/admin/auth/signup";
         }
         adminService.add(admin);
         return "redirect:/admin/signin";

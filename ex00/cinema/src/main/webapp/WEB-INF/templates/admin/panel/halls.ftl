@@ -5,11 +5,11 @@
     <form method="post">
         <div>
             <div>
-                <label>Enter hall's serial number:</label>
+                <label>Serial number:</label>
                 <@spring.formInput "movieHall.serialNumber" /> <@spring.showErrors "<br />"/>
             </div>
             <div>
-                <label>Enter count of seats:</label>
+                <label>Number of seats:</label>
                 <@spring.formInput "movieHall.seats"/> <@spring.showErrors "<br />"/>
             </div>
         </div>

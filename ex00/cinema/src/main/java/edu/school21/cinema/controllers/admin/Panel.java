@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Panel {
     @GetMapping()
     public String getPage() {
-        return "/admin/panel";
+        return "/admin/panel/index";
     }
 }

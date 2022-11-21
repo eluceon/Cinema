@@ -1,6 +1,6 @@
 body {
-    background: url(/static/img/background.jpg) no-repeat center fixed;
-    background-image: url(/static/img/background.jpg);
+    background: url(/resources/static/img/background.jpg) no-repeat center fixed;
+    background-image: url(/resources/static/img/background.jpg);
     background-size: cover;
     font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
     color: #c7c7c7;
@@ -43,6 +43,13 @@ input:focus, select:focus {
     padding: 10px;
 }
 
+.poster {
+    display:block;
+    margin:auto;
+    padding: 10px;
+    max-width: 40%;
+    max-height: 50%;
+}
 
 .btn {
     background-color: #00babc;

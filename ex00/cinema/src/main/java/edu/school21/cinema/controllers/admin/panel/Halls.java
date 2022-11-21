@@ -42,15 +42,4 @@ class Halls {
         movieHallService.add(movieHall);
         return "redirect:/admin/panel/halls";
     }
-
-
-    @GetMapping("/sessions")
-    private String getSessions() {
-        return "/admin/panel/sessions";
-    }
-
-    @PostMapping("/sessions")
-    private String postSession() {
-        return "redirect:/admin/panel/sessions";
-    }
 }

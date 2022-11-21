@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS ex00.posters(
     id      int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name    VARCHAR(255) NOT NULL DEFAULT 'no_poster',
     path    VARCHAR(255) NOT NULL,
-    size    INT NOT NULL DEFAULT 0 CHECK (size >= 0),
+    size    bigint NOT NULL DEFAULT 0 CHECK (size >= 0),
     mime    text,
     date    timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     admin_id int,
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS ex00.posters(
 CREATE TABLE IF NOT EXISTS ex00.movies(
     id              int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     title           text NOT NULL,
-    year_of_release int NOT NULL CHECK (year_of_release > 1900 AND year_of_release <= date_part ('year', CURRENT_DATE)),
+    year_of_release int NOT NULL CHECK (year_of_release >= 1900 AND year_of_release <= date_part ('year', CURRENT_DATE)),
     age_restriction int NOT NULL CHECK (age_restriction >= 0 AND age_restriction <= 150),
     description     text,
     poster_id       int,

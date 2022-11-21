@@ -27,7 +27,7 @@ public class Poster {
     private String path;
     @Column(name = "size")
     @Min(value = 0, message = "Size can't be a negative number")
-    private Integer size;
+    private Long size;
     @Column(name = "mime")
     private String mime;
     @Column(name = "date")
