@@ -71,7 +71,6 @@ class Films {
     }
 
     private void makePoster(MultipartFile file, Movie movie, Admin admin ) {
-//        String name = multipartFile.getOriginalFilename();
         String relativeDirPath = storagePath  + File.separator + movie.getAdmin().getId();
         String uploadAbsoluteDirPath = context.getRealPath(relativeDirPath);
         // creates the save directory if it does not exist

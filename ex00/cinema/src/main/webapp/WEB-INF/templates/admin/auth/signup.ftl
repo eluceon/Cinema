@@ -6,7 +6,7 @@
 
 <#macro content>
     <form method="post">
-        <div>
+        <div class="container">
             <div>
                 <label>First Name:</label><br />
                 <@spring.formInput "admin.firstName"/> <@spring.showErrors "<br />"/>
@@ -27,8 +27,8 @@
                 <label>Password:</label><br />
                 <@spring.formInput "admin.password"/> <@spring.showErrors "<br />"/>
             </div>
+            <input type="submit" class="btn" value="Submit">
         </div>
-        <input type="submit" class="btn" value="Submit">
     </form>
 </#macro>
 

@@ -3,7 +3,7 @@
 
 <#macro content>
     <form method="post">
-        <div>
+        <div class="container">
             <div>
                 <label>Email:</label><br />
                 <@spring.formInput "loginForm.email"/> <@spring.showErrors "<br />"/>
@@ -12,9 +12,8 @@
                 <label>Password:</label><br />
                 <@spring.formInput "loginForm.password"/> <@spring.showErrors "<br />"/>
             </div>
-
+            <input type="submit" class="btn" value="Sign In">
         </div>
-        <input type="submit" class="btn" value="Sign In">
     </form>
 </#macro>
 

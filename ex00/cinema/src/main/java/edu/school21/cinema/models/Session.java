@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -20,14 +20,22 @@ public class Session {
     @Min(value = 0, message = "Price cant' be a negative number")
     private Double price;
     @Column(name = "date_time")
-    private Timestamp dateTime;
-    @ManyToOne
-    @JoinColumn(name = "admin_id", referencedColumnName = "id")
-    private Admin admin;
+    private LocalDateTime dateTime;
     @ManyToOne
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
     private Movie movie;
     @ManyToOne
     @JoinColumn(name = "movie_hall_id", referencedColumnName = "id")
     private MovieHall movieHall;
+    @ManyToOne
+    @JoinColumn(name = "admin_id", referencedColumnName = "id")
+    private Admin admin;
+
+    public Session(Double price, LocalDateTime dateTime, Movie movie, MovieHall movieHall, Admin admin) {
+        this.price = price;
+        this.dateTime = dateTime;
+        this.movie = movie;
+        this.movieHall = movieHall;
+        this.admin = admin;
+    }
 }

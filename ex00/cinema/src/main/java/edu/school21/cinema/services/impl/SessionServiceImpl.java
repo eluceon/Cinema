@@ -31,16 +31,19 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
+    @Transactional
     public void add(Session session) {
         sessionDao.add(session);
     }
 
     @Override
+    @Transactional
     public void update(Session session) {
         sessionDao.update(session);
     }
 
     @Override
+    @Transactional
     public void delete(Session session) {
         sessionDao.delete(session);
     }

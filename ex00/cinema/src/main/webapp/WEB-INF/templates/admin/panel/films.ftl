@@ -3,7 +3,7 @@
 
 <#macro content>
     <form method="post" action="films" enctype="multipart/form-data"/>
-        <div>
+        <div class="container">
             <div>
                 <label>Title:</label>
                 <@spring.formInput "movie.title" /> <@spring.showErrors "<br />"/>
@@ -23,8 +23,8 @@
             <div>
                 <input name="file" placeholder="poster for a movie" type="file" accept="image/*" required/>
             </div>
+            <input type="submit" class="btn" value="Add movie">
         </div>
-        <input type="submit" class="btn" value="Add movie">
     </form>
 
     <#if movies?has_content>

@@ -3,7 +3,7 @@
 
 <#macro content>
     <form method="post">
-        <div>
+        <div class="container">
             <div>
                 <label>Serial number:</label>
                 <@spring.formInput "movieHall.serialNumber" /> <@spring.showErrors "<br />"/>
@@ -12,8 +12,8 @@
                 <label>Number of seats:</label>
                 <@spring.formInput "movieHall.seats"/> <@spring.showErrors "<br />"/>
             </div>
+            <input type="submit" class="btn" value="Add hall">
         </div>
-        <input type="submit" class="btn" value="Add hall">
     </form>
 
     <#if movieHalls?has_content>
