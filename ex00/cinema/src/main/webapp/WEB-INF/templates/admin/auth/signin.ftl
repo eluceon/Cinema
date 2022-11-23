@@ -10,7 +10,7 @@
             </div>
             <div>
                 <label>Password:</label><br />
-                <@spring.formInput "loginForm.password"/> <@spring.showErrors "<br />"/>
+                <@spring.formPasswordInput "loginForm.password"/> <@spring.showErrors "<br />"/>
             </div>
             <input type="submit" class="btn" value="Sign In">
         </div>

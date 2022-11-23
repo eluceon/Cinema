@@ -25,7 +25,7 @@
             </div>
             <div>
                 <label>Password:</label><br />
-                <@spring.formInput "admin.password"/> <@spring.showErrors "<br />"/>
+                <@spring.formPasswordInput "admin.password"/> <@spring.showErrors "<br />"/>
             </div>
             <input type="submit" class="btn" value="Submit">
         </div>
