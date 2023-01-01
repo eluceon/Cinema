@@ -47,4 +47,9 @@ public class SessionServiceImpl implements SessionService {
     public void delete(Session session) {
         sessionDao.delete(session);
     }
+
+    @Override
+    public List<Session> searchByMovieTitle(String title) {
+        return sessionDao.findByMovieTitle(title);
+    }
 }

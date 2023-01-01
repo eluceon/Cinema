@@ -59,12 +59,6 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    @Transactional
-    public boolean addAvatar(Long id, Admin admin) {
-        return false;
-    }
-
-    @Override
     public Admin findByEmail(String email) {
         return adminDao.findByEmail(email).orElse(null);
     }

@@ -31,12 +31,4 @@ public class Admin {
     @Column(name = "password")
     @Size(min=5, message="Password must be at least 5 characters long")
     private String password;
-    @OneToMany(mappedBy = "admin")
-    private List<Movie> movies;
-    @OneToMany(mappedBy = "admin")
-    private List<MovieHall> movieHalls;
-    @OneToMany(mappedBy = "admin")
-    private List<Poster> posters;
-    @OneToMany(mappedBy = "admin")
-    private List<Session> sessions;
 }

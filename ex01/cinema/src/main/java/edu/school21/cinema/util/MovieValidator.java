@@ -27,7 +27,6 @@ public class MovieValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Movie movie = (Movie) target;
-        System.out.println(movie);
         if (movie != null && movie.getYearOfRelease() != null && movie.getYearOfRelease() > Year.now().getValue()) {
             errors.rejectValue("yearOfRelease", "", "Year of release can't be greater current year");
         }

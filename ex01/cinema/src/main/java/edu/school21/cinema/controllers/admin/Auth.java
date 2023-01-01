@@ -10,21 +10,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/admin")
-public class AuthController {
+public class Auth {
     private final AdminService adminService;
     private final SignInValidator signInValidator;
     private final SignUpValidator signUpValidator;
 
     @Autowired
-    public AuthController(AdminService adminService, SignInValidator signInValidator, SignUpValidator signUpValidator) {
+    public Auth(AdminService adminService, SignInValidator signInValidator, SignUpValidator signUpValidator) {
         this.adminService = adminService;
         this.signInValidator = signInValidator;
         this.signUpValidator = signUpValidator;
