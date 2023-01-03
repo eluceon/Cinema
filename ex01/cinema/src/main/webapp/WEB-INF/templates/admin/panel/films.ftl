@@ -41,7 +41,7 @@
                     <tr>
                         <td>${row.title}</td>
                         <td>${row.yearOfRelease}</td>
-                        <td>${row.ageRestriction}</td>
+                        <td>${row.ageRestriction}+</td>
                         <td>${row.description}</td>
                         <td>
                              <#if row.poster??>

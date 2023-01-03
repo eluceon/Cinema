@@ -1,5 +1,6 @@
 package edu.school21.cinema.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -33,6 +34,7 @@ public class Poster {
     private String mime;
     @Column(name = "date")
     @NotNull(message = "Date is required")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp dateTime;
     @ManyToOne
     @JoinColumn(name = "admin_id", referencedColumnName = "id")

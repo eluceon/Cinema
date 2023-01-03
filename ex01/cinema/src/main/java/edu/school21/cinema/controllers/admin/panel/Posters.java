@@ -32,7 +32,7 @@ public class Posters {
             Poster poster = movie.getPoster();
             String path = null;
             if (poster == null || (path = poster.getPath()) == null) {
-                path = storagePath + File.separator + "ava.png";
+                path = storagePath + File.separator + "noimage.jpg";
             }
             model.addAttribute("path", path);
             return "/admin/panel/poster";

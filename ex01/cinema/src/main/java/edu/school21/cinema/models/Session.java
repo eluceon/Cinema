@@ -1,5 +1,6 @@
 package edu.school21.cinema.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +21,7 @@ public class Session {
     @Min(value = 0, message = "Price cant' be a negative number")
     private Double price;
     @Column(name = "date_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime dateTime;
     @ManyToOne
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
