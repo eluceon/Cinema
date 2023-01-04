@@ -32,6 +32,8 @@
                     <td>
                         <#if sessionInfo.movie.poster??>
                             <img src=${sessionInfo.movie.poster.path} style="max-width:255px">
+                        <#else>
+                            No poster
                         </#if>
                     </td>
                 </tr>
