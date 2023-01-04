@@ -1,0 +1,102 @@
+body {
+    background: url(/resources/static/img/background.jpg) no-repeat center fixed;
+    background-image: url(/resources/static/img/background.jpg);
+    background-size: cover;
+    font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+    color: #c7c7c7;
+}
+
+form {
+    width: 400px;
+    margin: auto
+}
+
+form b {
+    color: red;
+}
+
+.column_main {margin:0 15% 0 15%; min-height:1px;}
+.column_main_wrapper {float:left; width:100%;}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+input, select {
+    width: 400px;
+    padding: 8px 30px;
+    margin: 5px 0 25px 0;
+    display: inline-block;
+    border: 1px solid #00babc;
+    background: #181823;
+    font-size: 1.2em;
+    color: #c7c7c7;
+}
+
+input:focus, select:focus {
+    border: 1px solid #fff;
+    outline: none;
+}
+
+.container {
+    padding: 10px;
+}
+
+.poster {
+    display:block;
+    margin:auto;
+    padding: 10px;
+    max-width: 40%;
+    max-height: 50%;
+}
+
+.btn {
+    background-color: #00babc;
+    color: #fff;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 462px;
+    opacity: 0.85;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+table.statistics {
+    border: 3px solid #00babc;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    color: #67676d;
+    text-transform: uppercase;
+    background: #fff;
+}
+
+table.statistics td, table.statistics th {
+    border: 1px solid #00babc;
+    padding: 5px 4px;
+}
+table.statistics tbody td {
+    font-size: 13px;
+}
+table.statistics thead {
+    background: #00babc;
+    border-bottom: 3px solid #00babc;
+}
+table.statistics thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    text-align: left;
+}
