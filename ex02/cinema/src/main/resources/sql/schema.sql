@@ -52,3 +52,12 @@ CREATE TABLE IF NOT EXISTS ex02.sessions(
     FOREIGN KEY (movie_id) REFERENCES ex02.movies (id) ON DELETE SET NULL ,
     FOREIGN KEY (movie_hall_id) REFERENCES ex02.movie_halls (id) ON DELETE SET NULL
 );
+
+CREATE TABLE IF NOT EXISTS ex02.chat_messages(
+    id              bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    type            int NOT NULL,
+    content         text,
+    sender          VARCHAR(255) NOT NULL,
+    movie_id        int REFERENCES ex02.movie_halls(id) ON DELETE CASCADE,
+    date_time       timestamp NOT NULL
+)

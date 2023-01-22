@@ -6,7 +6,7 @@
 ---
 
 ## 2. Create a database schema:
-- see [schema.sql](src/main/resources//sql/schema.sql)
+- see [schema.sql](src/main/resources/sql/schema.sql)
 
 ---
 

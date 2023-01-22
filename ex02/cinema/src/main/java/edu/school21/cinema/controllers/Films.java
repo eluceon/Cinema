@@ -28,4 +28,11 @@ public class Films {
         return "/films/id";
     }
 
+    @GetMapping("/{id}/chat")
+    public String getChat(@PathVariable int id, Model model) {
+        model.addAttribute("movie", movieService.get(id));
+        // ToDo
+        return "/films/chat";
+    }
+
 }
