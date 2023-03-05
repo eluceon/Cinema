@@ -36,6 +36,4 @@ public class Movie {
     @ManyToOne
     @JoinColumn(name = "admin_id", referencedColumnName = "id")
     private Admin admin;
-//    @OneToMany(mappedBy = "movie")
-//    private List<ChatMessage> chatMessages;
 }

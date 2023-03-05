@@ -3,7 +3,7 @@ package edu.school21.cinema.services.impl;
 import edu.school21.cinema.dao.MovieHallDao;
 import edu.school21.cinema.models.MovieHall;
 import edu.school21.cinema.services.MovieHallService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,13 +12,9 @@ import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
+@AllArgsConstructor
 public class MovieHallServiceImpl implements MovieHallService {
     private final MovieHallDao movieHallDao;
-
-    @Autowired
-    public MovieHallServiceImpl(MovieHallDao movieHallDao) {
-        this.movieHallDao = movieHallDao;
-    }
 
     @Override
     public MovieHall get(int id) {

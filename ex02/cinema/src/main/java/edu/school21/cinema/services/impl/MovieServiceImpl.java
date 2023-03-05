@@ -3,22 +3,17 @@ package edu.school21.cinema.services.impl;
 import edu.school21.cinema.dao.MovieDao;
 import edu.school21.cinema.models.Movie;
 import edu.school21.cinema.services.MovieService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
+@AllArgsConstructor
 public class MovieServiceImpl implements MovieService {
     private final MovieDao movieDao;
-
-    @Autowired
-    public MovieServiceImpl(MovieDao movieDao) {
-        this.movieDao = movieDao;
-    }
 
     @Override
     public Movie get(int id) {

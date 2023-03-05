@@ -43,7 +43,6 @@ public class SessionDaoImpl implements SessionDao {
     @Override
     public List<Session> findByMovieTitle(String title) {
         TypedQuery<Session> query = entityManager.createQuery(
-//                "SELECT s FROM Session s WHERE lower(s.movie.title) like lower(concat('%',:title, '%'))",
                 "SELECT s FROM Session s LEFT JOIN FETCH s.movie m " +
                         "WHERE lower(m.title) like lower(concat('%',:title, '%'))",
                 Session.class

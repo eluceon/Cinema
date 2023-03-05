@@ -3,7 +3,7 @@ package edu.school21.cinema.services.impl;
 import edu.school21.cinema.dao.AdminDao;
 import edu.school21.cinema.models.Admin;
 import edu.school21.cinema.services.AdminService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,15 +13,10 @@ import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
+@AllArgsConstructor
 public class AdminServiceImpl implements AdminService {
     private final AdminDao adminDao;
     private final PasswordEncoder passwordEncoder;
-
-    @Autowired
-    public AdminServiceImpl(AdminDao adminDao, PasswordEncoder passwordEncoder) {
-        this.adminDao = adminDao;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Override
     public Admin get(int id) {

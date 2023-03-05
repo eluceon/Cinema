@@ -56,13 +56,13 @@ function sendMessage(event) {
     const messageContent = messageInput.value.trim();
 
     if(messageContent && stompClient) {
-        const chatMessage = {
+        const message = {
             sender: username,
             content: messageInput.value,
             type: 'CHAT'
         };
 
-        stompClient.send('/app/films/1/chat/sendMessage', {}, JSON.stringify(chatMessage));
+        stompClient.send('/app/films/1/chat/sendMessage', {}, JSON.stringify(message));
         messageInput.value = '';
     }
     event.preventDefault();

@@ -12,9 +12,10 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Table(name = "chat_messages")
-public class ChatMessage {
+public class Message {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "type")
     @Enumerated(EnumType.ORDINAL)
@@ -23,9 +24,11 @@ public class ChatMessage {
     private String content;
     @Column(name = "sender")
     private String sender;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
     private Movie movie;
+
+    @Column(name = "date_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateTime = LocalDateTime.now();
 

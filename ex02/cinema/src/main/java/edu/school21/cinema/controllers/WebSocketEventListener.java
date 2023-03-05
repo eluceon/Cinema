@@ -1,6 +1,6 @@
 package edu.school21.cinema.controllers;
 
-import edu.school21.cinema.models.ChatMessage;
+import edu.school21.cinema.models.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
@@ -36,12 +36,12 @@ public class WebSocketEventListener {
         if(username != null) {
             log.info("User Disconnected : " + username);
 
-            ChatMessage chatMessage = new ChatMessage();
-            chatMessage.setType(ChatMessage.Type.LEAVE);
-            chatMessage.setSender(username);
+            Message message = new Message();
+            message.setType(Message.Type.LEAVE);
+            message.setSender(username);
 
             int movieId = (int) headerAccessor.getSessionAttributes().get("movieId");
-            messagingTemplate.convertAndSend("/topic/films/" + movieId, chatMessage);
+            messagingTemplate.convertAndSend("/topic/films/" + movieId, message);
         }
     }
 }

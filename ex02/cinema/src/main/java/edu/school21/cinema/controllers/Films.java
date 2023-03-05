@@ -1,6 +1,9 @@
 package edu.school21.cinema.controllers;
 
+import edu.school21.cinema.services.MessageService;
 import edu.school21.cinema.services.MovieService;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller("FilmsAdmin")
 @RequestMapping("/films")
+@AllArgsConstructor
 public class Films {
     private final MovieService movieService;
-
-    public Films(MovieService movieService) {
-        this.movieService = movieService;
-    }
+    private final MessageService messageService;
 
     @GetMapping
     public String getMoviesPage(Model model) {
@@ -28,9 +29,10 @@ public class Films {
         return "/films/id";
     }
 
-    @GetMapping("/{id}/chat")
-    public String getChat(@PathVariable int id, Model model) {
-        model.addAttribute("movie", movieService.get(id));
+    @GetMapping("/{movieId}/chat")
+    public String getChat(@PathVariable int movieId, Model model) {
+        model.addAttribute("movie", movieService.get(movieId));
+        model.addAttribute("chatHistory", messageService.getHistory(movieId));
         // ToDo
         return "/films/chat";
     }

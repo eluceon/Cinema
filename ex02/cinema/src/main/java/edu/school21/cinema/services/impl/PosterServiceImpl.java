@@ -3,24 +3,18 @@ package edu.school21.cinema.services.impl;
 import edu.school21.cinema.dao.PosterDao;
 import edu.school21.cinema.models.Poster;
 import edu.school21.cinema.services.PosterService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
+@AllArgsConstructor
 public class PosterServiceImpl implements PosterService {
     private final PosterDao posterDao;
-
-    @Autowired
-    public PosterServiceImpl(PosterDao posterDao) {
-        this.posterDao = posterDao;
-    }
 
     @Override
     public Poster get(int id) {

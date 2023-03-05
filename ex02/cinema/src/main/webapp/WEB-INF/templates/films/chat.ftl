@@ -29,13 +29,18 @@
     <div id="chat-page" class="hidden">
         <div class="chat-container">
             <div class="chat-header">
-                <h2>Movie ${movie.id} Chat - ${movie.title}</h2>
+                <h2>Movie Chat - ${movie.title}</h2>
             </div>
             <div class="connecting">
                 Connecting...
             </div>
             <ul id="messageArea">
-
+                <#list chatHistory as message>
+                    <li>
+                        ${message.sender}
+                        <p>${message.content}</p>
+                    </li>
+                </#list>
             </ul>
             <form id="messageForm" name="messageForm" nameForm="messageForm">
                 <div class="form-group">
@@ -47,8 +52,6 @@
             </form>
         </div>
     </div>
-
-
 
   <script>
       'use strict';
@@ -109,14 +112,14 @@
           var messageContent = messageInput.value.trim();
 
           if(messageContent && stompClient) {
-              var chatMessage = {
+              var message = {
                   sender: username,
                   content: messageInput.value,
                   type: 'CHAT',
                   movieId:  ${movie.id},
               };
 
-              stompClient.send('/app/films/${movie.id}/chat/sendMessage', {}, JSON.stringify(chatMessage));
+              stompClient.send('/app/films/${movie.id}/chat/sendMessage', {}, JSON.stringify(message));
               messageInput.value = '';
           }
           event.preventDefault();
@@ -158,6 +161,25 @@
 
           messageArea.appendChild(messageElement);
           messageArea.scrollTop = messageArea.scrollHeight;
+      }
+
+
+      function printMessage(messageSender) {
+          var messageElement = document.createElement('li');
+
+          messageElement.classList.add('chat-message');
+
+          var avatarElement = document.createElement('i');
+          var avatarText = document.createTextNode(messageSender[0]);
+          avatarElement.appendChild(avatarText);
+          avatarElement.style['background-color'] = getAvatarColor(messageSender);
+
+          messageElement.appendChild(avatarElement);
+
+          var usernameElement = document.createElement('span');
+          var usernameText = document.createTextNode(messageSender);
+          usernameElement.appendChild(usernameText);
+          messageElement.appendChild(usernameElement);
       }
 
 
