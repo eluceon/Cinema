@@ -81,6 +81,8 @@
           username = document.querySelector('#name').value.trim();
 
           if(username) {
+              setCookie('name', username, 1);
+
               usernamePage.classList.add('hidden');
               chatPage.classList.remove('hidden');
 
@@ -130,7 +132,6 @@
           event.preventDefault();
       }
 
-
       function onMessageReceived(payload) {
           const message = JSON.parse(payload.body);
 
@@ -177,6 +178,40 @@
           const index = Math.abs(hash % colors.length);
           return colors[index];
       }
+
+      function setCookie(name, value, days) {
+          let expires = "";
+          if (days) {
+              const date = new Date();
+              date.setTime(date.getTime() + (days*24*60*60*1000));
+              expires = "; expires=" + date.toUTCString();
+          }
+          document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+      }
+
+      function getCookie(name) {
+          const nameEQ = name + "=";
+          const ca = document.cookie.split(';');
+          for(let i=0; i < ca.length; i++) {
+              let c = ca[i];
+              while (c.charAt(0)==' ') c = c.substring(1,c.length);
+              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+          }
+          return null;
+      }
+
+      window.onload = function() {
+          username = getCookie('name');
+          if (username){
+              usernamePage.classList.add('hidden');
+              chatPage.classList.remove('hidden');
+
+              const socket = new SockJS('/ws');
+              stompClient = Stomp.over(socket);
+
+              stompClient.connect({}, onConnected, onError);
+          }
+      };
 
       usernameForm.addEventListener('submit', connect, true)
       messageForm.addEventListener('submit', sendMessage, true)
