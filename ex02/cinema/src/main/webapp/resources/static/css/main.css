@@ -1,8 +1,7 @@
 body {
     background: url(/resources/static/img/background.jpg) no-repeat center fixed;
-    background-image: url(/resources/static/img/background.jpg);
     background-size: cover;
-    font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+    font-family: "Futura PT", "Futura", "Helvetica", sans-serif;
     color: #c7c7c7;
 }
 
@@ -63,7 +62,6 @@ input:focus, select:focus {
     cursor: pointer;
     width: 462px;
     opacity: 0.85;
-    border: none;
     text-align: center;
     vertical-align: middle;
 }

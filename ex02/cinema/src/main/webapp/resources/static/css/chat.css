@@ -10,26 +10,10 @@ html,body {
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-weight: 400;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.58;
-    color: #333;
-    background-color: #f4f4f4;
-    height: 100%;
-}
-
-body:before {
-    height: 50%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #128ff2;
-    content: "";
-    z-index: 0;
+    background: url(/resources/static/img/background.jpg) no-repeat center fixed;
+    background-size: cover;
+    font-family: "Futura PT", "Futura", "Helvetica", sans-serif;
+    color: #c7c7c7;
 }
 
 .clearfix:after {
@@ -93,7 +77,7 @@ button.default {
 }
 
 button.primary {
-    background-color: #128ff2;
+    background-color: #00babc;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
     color: #fff;
 }
@@ -115,9 +99,7 @@ button.accent {
     width: 100%;
     max-width: 500px;
     display: inline-block;
-    margin-top: 42px;
     vertical-align: middle;
-    position: relative;
     padding: 35px 55px 35px;
     min-height: 250px;
     position: absolute;
@@ -156,7 +138,7 @@ button.accent {
     margin: 0;
     overflow: auto;
     overflow-y: scroll;
-    padding: 0 20px 0px 20px;
+    padding: 0 20px 0 20px;
     height: calc(100% - 150px);
 }
 
