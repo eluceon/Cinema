@@ -7,6 +7,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface AvatarDao extends CrudDao<Avatar> {
-    List<Avatar> getAllAvatarsByUserId(int userId);
+    List<Avatar> getAllByUserId(int userId);
     Optional<Avatar> getByUUID(UUID uuid);
 }

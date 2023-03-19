@@ -98,3 +98,52 @@ table.statistics thead th {
     color: #fff;
     text-align: left;
 }
+
+.about {
+    height: 305px;
+    margin: 30px;
+}
+
+.avatar {
+    text-align: center;
+    width: 250px;
+    float: left;
+    margin-right: 50px;
+}
+
+.avatar input[type="file"] {
+    display: none;
+}
+
+.avatar img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 7%;
+}
+
+.avatar input[type="submit"] {
+    border: none;
+}
+
+.avatar label {
+    margin-right: 10px;
+}
+
+.avatar label, .avatar input[type="submit"] {
+    background-color: #00babc;
+    color: #ffffff;
+    height: 31px;
+    padding: 7px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.avatar label:hover, .avatar input[type="submit"]:hover {
+    background-color: #008889;
+}
+
+.avatar form {
+    margin-top: 35px;
+}

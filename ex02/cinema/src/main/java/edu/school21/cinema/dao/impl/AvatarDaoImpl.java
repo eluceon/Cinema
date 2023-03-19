@@ -16,7 +16,7 @@ public class AvatarDaoImpl implements AvatarDao {
     @PersistenceContext
     private EntityManager entityManager;
     @Override
-    public List<Avatar> getAllAvatarsByUserId(int userId) {
+    public List<Avatar> getAllByUserId(int userId) {
         return entityManager.createQuery("select a FROM Avatar a WHERE admin.id = :userId")
                 .setParameter("userId", userId)
                 .getResultList();
