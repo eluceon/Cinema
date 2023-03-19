@@ -60,4 +60,25 @@ CREATE TABLE IF NOT EXISTS ex02.chat_messages(
     sender          VARCHAR(255) NOT NULL,
     movie_id        int REFERENCES ex02.movie_halls(id) ON DELETE CASCADE,
     date_time       timestamp NOT NULL
-)
+);
+
+CREATE TABLE IF NOT EXISTS ex02.authentications
+(
+    id          bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    ip          VARCHAR(48) NOT NULL,
+    date_time   timestamp DEFAULT CURRENT_TIMESTAMP,
+    admin_id    int NOT NULL,
+    FOREIGN KEY (admin_id) REFERENCES ex02.admins (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS ex02.avatars
+(
+    id          VARCHAR(255) NOT NULL,
+    name        VARCHAR(255) NOT NULL,
+    path        VARCHAR(255) NOT NULL,
+    size        INT DEFAULT 0,
+    mime        TEXT,
+    date_time   timestamp DEFAULT CURRENT_TIMESTAMP,
+    admin_id    int NOT NULL,
+    FOREIGN KEY (admin_id) REFERENCES ex02.admins (id) ON DELETE CASCADE
+);
