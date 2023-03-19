@@ -44,3 +44,6 @@ indicate a ticket cost.
     Administrator login page.
 - #### /admin/signup
   Administrator registration page.
+- #### /admin/profile
+  Administrator profile page.
+
