@@ -1,32 +1,31 @@
 package edu.school21.cinema.controllers.admin;
 
 import edu.school21.cinema.models.Admin;
+import edu.school21.cinema.models.Authentication;
 import edu.school21.cinema.models.LoginForm;
 import edu.school21.cinema.services.AdminService;
+import edu.school21.cinema.services.AuthenticationService;
 import edu.school21.cinema.util.SignInValidator;
 import edu.school21.cinema.util.SignUpValidator;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 
 @Controller
+@AllArgsConstructor
 @RequestMapping("/admin")
 public class Auth {
     private final AdminService adminService;
     private final SignInValidator signInValidator;
     private final SignUpValidator signUpValidator;
-
-    @Autowired
-    public Auth(AdminService adminService, SignInValidator signInValidator, SignUpValidator signUpValidator) {
-        this.adminService = adminService;
-        this.signInValidator = signInValidator;
-        this.signUpValidator = signUpValidator;
-    }
+    private final AuthenticationService authenticationService;
 
     @GetMapping("/signin")
     public String getSignIn(Model model)  {
@@ -35,7 +34,7 @@ public class Auth {
     }
 
     @PostMapping("/signin")
-    public String signIn(@ModelAttribute @Valid LoginForm loginForm, BindingResult result, HttpSession session) {
+    public String signIn(@ModelAttribute @Valid LoginForm loginForm, BindingResult result, HttpServletRequest req) {
         signInValidator.validate(loginForm.getEmail(), result);
         if (result.hasErrors()) {
             return "/admin/auth/signin";
@@ -46,7 +45,8 @@ public class Auth {
             return "/admin/auth/signin";
         }
 
-        session.setAttribute("admin", admin);
+        req.getSession().setAttribute("admin", admin);
+        authenticationService.add(new Authentication(req.getRemoteAddr(), LocalDateTime.now(), admin));
         return "redirect:/admin/panel";
     }
 

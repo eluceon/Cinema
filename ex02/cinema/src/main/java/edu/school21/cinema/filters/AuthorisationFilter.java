@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter({"/admin/panel", "/admin/panel/*"})
+@WebFilter({"/admin/profile", "/admin/panel", "/admin/panel/*"})
 public class AuthorisationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
