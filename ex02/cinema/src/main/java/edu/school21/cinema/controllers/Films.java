@@ -3,7 +3,6 @@ package edu.school21.cinema.controllers;
 import edu.school21.cinema.services.MessageService;
 import edu.school21.cinema.services.MovieService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +32,6 @@ public class Films {
     public String getChat(@PathVariable int movieId, Model model) {
         model.addAttribute("movie", movieService.get(movieId));
         model.addAttribute("chatHistory", messageService.getHistory(movieId));
-        // ToDo
         return "/films/chat";
     }
 
