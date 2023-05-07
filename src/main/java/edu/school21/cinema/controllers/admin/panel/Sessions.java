@@ -42,14 +42,14 @@ public class Sessions {
 
     @PostMapping
     public String postPage(HttpSession session,
-                           @RequestParam("movie") Integer movie_id,
-                           @RequestParam("hall") Integer hall_id,
+                           @RequestParam("movie") Integer movieId,
+                           @RequestParam("hall") Integer hallId,
                            @RequestParam("dateTime") String dateTime,
                            @RequestParam("price") Double price
     ) {
         Admin admin = (Admin) session.getAttribute("admin");
-        MovieHall movieHall = movieHallService.get(hall_id);
-        Movie movie = movieService.get(movie_id);
+        MovieHall movieHall = movieHallService.get(hallId);
+        Movie movie = movieService.get(movieId);
         if (movie == null || movieHall == null){
             return  "/admin/panel/sessions";
         }

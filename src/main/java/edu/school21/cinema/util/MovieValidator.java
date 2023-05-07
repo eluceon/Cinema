@@ -12,7 +12,6 @@ import java.time.Year;
 
 @Component
 public class MovieValidator implements Validator {
-    private final MovieHallService movieHallService;
 
     @Autowired
     public MovieValidator(MovieHallService movieHallService) {
